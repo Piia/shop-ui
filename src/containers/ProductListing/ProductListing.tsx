@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { ProductResponse } from "../../hooks/useProducts/useProducts";
 import withProducts from "../../decorators/withProducts/withProducts";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 
 interface Props {
@@ -18,7 +19,7 @@ export const ProductListing: FunctionComponent<Props> = function (props) {
   return (
     <div>
       {props.productResponse.products.map(product => (
-        <div key={product.uuid}>{`Name ${product.name}`}</div>
+        <ProductCard product={product} />
       ))}
     </div>
   );
