@@ -12,6 +12,10 @@ export interface ProductResponse {
   products: Product[];
 }
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_PRODUCT_SERVICE_URL
+});
+
 const productApi = ProductControllerApiAxiosParamCreator();
 
 export function useProducts(): ProductResponse {
@@ -19,7 +23,8 @@ export function useProducts(): ProductResponse {
   const [exception, setException] = useState<any>(null);
 
   useEffect(() => {
-    const products: Promise<Product[]> = axios
+
+    const products: Promise<Product[]> = axiosInstance
       .request<PageProduct>(productApi.list())
       .then((page) => page.data.content ?? []);
 
