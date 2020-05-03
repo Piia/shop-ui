@@ -1,12 +1,18 @@
 import React from "react";
-import { Layout } from "antd";
+import { Button } from "antd";
+// import { Layout } from "antd";
 
-const { Header, Content, Sider, Footer } = Layout;
+// const { Header, Content, Sider, Footer } = Layout;
 
 export interface ShopLayoutProps {}
 
 const ShopLayout: React.FunctionComponent<ShopLayoutProps> = () => {
   return (
+    <div>
+      ShopLayout <Button type="primary">Paina tästä</Button>
+    </div>
+  );
+  /* return (
     <Layout>
       <Header>header</Header>
       <Layout>
@@ -15,7 +21,7 @@ const ShopLayout: React.FunctionComponent<ShopLayoutProps> = () => {
       </Layout>
       <Footer>footer</Footer>
     </Layout>
-  );
+  ); */
 };
 
 export default ShopLayout;
