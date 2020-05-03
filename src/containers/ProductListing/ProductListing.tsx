@@ -1,23 +1,27 @@
 import React, { FunctionComponent } from "react";
+import { ProductResponse } from "../../hooks/useProducts/useProducts";
+import withProducts from "../../decorators/withProducts/withProducts";
 
-import { useProducts } from "../../hooks/useProducts/useProducts";
 
-export const ProductListing: FunctionComponent<{}> = function () {
-  const productResponse = useProducts();
+interface Props {
+  productResponse: ProductResponse
+};
 
-  if (productResponse.exception?.rejectReason) {
+export const ProductListing: FunctionComponent<Props> = function (props) {
+
+  if (props.productResponse.exception?.rejectReason) {
     return (
-      <div>{`Failed to fetch products: ${productResponse.exception.rejectReason}`}</div>
+      <div>{`Failed to fetch products: ${props.productResponse.exception.rejectReason}`}</div>
     );
   }
 
   return (
     <div>
-      {productResponse.products.map(product => (
+      {props.productResponse.products.map(product => (
         <div key={product.uuid}>{`Name ${product.name}`}</div>
       ))}
     </div>
   );
 };
 
-export default ProductListing;
+export default withProducts<{}>(ProductListing);
