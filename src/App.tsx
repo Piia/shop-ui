@@ -22,7 +22,6 @@ function App() {
 
       <OidcSecure>
         <div className="App">
-
           <Router>
             <Greeting />
             <ProductListing />

@@ -12,9 +12,6 @@ const ProductForm: FC<Props> = ({ product }) => {
   const [price, setPrice] = useState(product?.cost);
   const [currency, setCurrency] = useState(product?.currency || ProductCurrencyEnum.EUR);
 
-  console.log("Product", product);
-  console.log(name);
-
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },

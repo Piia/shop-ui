@@ -19,7 +19,7 @@ export const ProductListing: FunctionComponent<Props> = function (props) {
   return (
     <div>
       {props.productResponse.products.map(product => (
-        <ProductCard product={product} />
+        <ProductCard key={product.uuid} product={product} />
       ))}
     </div>
   );
